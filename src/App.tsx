@@ -1,9 +1,11 @@
+import Text from './components/ui/Text';
+
 export default function App() {
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold underline">
+      <Text as="h1" variant="title">
         Hello world!
-      </h1>
+      </Text>
     </div>
   )
 }
