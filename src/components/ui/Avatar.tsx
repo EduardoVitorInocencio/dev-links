@@ -6,7 +6,7 @@ type AvatarProps = {
     fallbackText?: string;
 };
 
-export function Avatar({ src, alt, fallbackText ="DL" }: AvatarProps) {
+export default function Avatar({ src, alt, fallbackText ="DL" }: AvatarProps) {
     const [failed, setFailed] = useState(false);
 
     useEffect(() => setFailed(false), [src]);
