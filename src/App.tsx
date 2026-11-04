@@ -1,51 +1,54 @@
-import Text from './components/ui/Text';
-import Button from './components/ui/Button';
-import { Icon } from './components/ui/Icon';
-import { ToggleButton } from './components/ui/ToogleButton';
-import { useTheme } from './hooks/useTheme';
+import Text from "./components/ui/Text";
+import { ToggleButton } from "./components/ui/ToogleButton";
+import LinkList from "./components/features/LinksList";
+
+import mobileLightBackground from "./assets/bg-mobile-light.png";
+import mobileDarkBackground from "./assets/bg-mobile-dark.jpg";
+import desktopLightBackground from "./assets/bg-desktop-light.png";
+import desktopDarkBackground from "./assets/bg-desktop-dark.png";
+
+import { useTheme } from "./hooks/useTheme";
 
 export default function App() {
-   const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
+
+  const isDark = theme === "dark";
+
+  const mobileBg = isDark ? mobileDarkBackground : mobileLightBackground;
+
+  const desktopBg = isDark ? desktopDarkBackground : desktopLightBackground;
 
   return (
-    <div className="App">
-    <Text as="h1" variant="title">
-      Meu portfólio
-    </Text>
+    <div className="relative min-h-dvh overflow-hidden bg-[var(--page-background)] text-[var(--text)]">
+      <picture className="pointer-events-none absolute inset-0 h-full w-full">
+        <source media="(min-width: 768px)" srcSet={desktopBg} />
+        <img
+          src={mobileBg}
+          alt=""
+          className="h-full w-full object-cover"
+        />
+      </picture>
 
-    <Text variant="body">
-      @seu.perfil
-    </Text>
+      <main className="relative mx-auto flex w-full max-w-[588px] flex-col items-center pt-14">
+        <Text as="h1" variant="title">
+          Meu portfólio
+        </Text>
 
-    <Text variant="small">
-      Feito com ♥
-    </Text>
+        <Text variant="body">@seu.perfil</Text>
 
-    {/* // Navigation */}
-    <Button href="https://github.com" target="_blank">
-      Meu GitHub
-    </Button>
+        <ToggleButton
+          value={theme}
+          onChange={toggleTheme}
+        />
 
-    {/* // Action */}
-    <Button onClick={() => alert("Clicou!")}>
-      Clique aqui
-    </Button>
+        <LinkList />
 
-    {/* // Custom styling */}
-    <Button className="max-w-xs">
-      Botão menor
-    </Button>
-
-    <Icon name="github" size={21} />
-    <Icon name="instagram" size={21} />
-    <Icon name="youtube" size={21} />
-    <Icon name="linkedin" size={21} />
-    <Icon name="sun" size={21} />
-    <Icon name="moon" size={21} />
-    <Icon name="medium" size={21} />
-
-    <ToggleButton value={theme} onChange={toggleTheme} />
-
+        <footer className="flex w-full justify-center p-6">
+          <Text variant="small">
+            Feito com ♥ por você
+          </Text>
+        </footer>
+      </main>
     </div>
-  )
+  );
 }
