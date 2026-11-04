@@ -21,7 +21,10 @@ export default function Text({
 }: TextProps) {
   return (
     <Tag className={`${variants[variant]} ${className}`}>
-      {children}
+      {/* // This component renders the text with the specified HTML tag and applies the appropriate Tailwind CSS classes 
+      // based on the variant prop. className prop allows for additional custom styling to be applied. */}
+      {/* //  */}
+      {children} 
     </Tag>
   );
 }
