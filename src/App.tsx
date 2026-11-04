@@ -1,5 +1,6 @@
 import Text from './components/ui/Text';
 import Button from './components/ui/Button';
+import { Icon } from './components/ui/Icon';
 
 export default function App() {
   return (
@@ -15,6 +16,29 @@ export default function App() {
     <Text variant="small">
       Feito com ♥
     </Text>
+
+    {/* // Navigation */}
+    <Button href="https://github.com" target="_blank">
+      Meu GitHub
+    </Button>
+
+    {/* // Action */}
+    <Button onClick={() => alert("Clicou!")}>
+      Clique aqui
+    </Button>
+
+    {/* // Custom styling */}
+    <Button className="max-w-xs">
+      Botão menor
+    </Button>
+
+    <Icon name="github" size={21} />
+    <Icon name="instagram" size={21} />
+    <Icon name="youtube" size={21} />
+    <Icon name="linkedin" size={21} />
+    <Icon name="sun" size={21} />
+    <Icon name="moon" size={21} />
+    <Icon name="medium" size={21} />
 
     </div>
   )

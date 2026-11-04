@@ -16,7 +16,7 @@ const baseStyles = [
   "transition-colors duration-200 hover:border-[var(--text)] hover:bg-[var(--surface-hover)]",
 ].join(" ");
 
-export function Button({
+export default function Button({
   children,
   href,
   target = "_self",
