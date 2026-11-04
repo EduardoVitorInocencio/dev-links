@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+/* Design tokens from Figma (light theme). */
+:root,
+:root[data-theme="light"] {
+  font-family: "Inter", sans-serif;
+  color-scheme: light;
+  --page-background: #ffffff;
+  --text: #000000;
+  --surface: rgb(0 0 0 / 5%);
+  --surface-hover: rgb(0 0 0 / 2%);
+  --stroke: rgb(0 0 0 / 50%);
+  --highlight: rgb(0 0 0 / 10%);
+  --fallback-background: radial-gradient(ellipse at 58% 92%, #dfc9f7 0%, transparent 52%), #ffffff;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-background: #121214;
+  --text: #ffffff;
+  --surface: rgb(255 255 255 / 10%);
+  --surface-hover: rgb(255 255 255 / 5%);
+  --stroke: rgb(255 255 255 / 50%);
+  --highlight: rgb(255 255 255 / 20%);
+  --fallback-background: radial-gradient(ellipse at 52% 92%, #4b1c78 0%, transparent 58%), #121214;
+}
+
+html { min-width: 320px; }
+body { margin: 0; min-width: 320px; }
+button, a { -webkit-tap-highlight-color: transparent; }
