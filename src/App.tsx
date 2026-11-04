@@ -1,8 +1,12 @@
 import Text from './components/ui/Text';
 import Button from './components/ui/Button';
 import { Icon } from './components/ui/Icon';
+import { ToggleButton } from './components/ui/ToogleButton';
+import { useTheme } from './hooks/useTheme';
 
 export default function App() {
+   const { theme, toggleTheme } = useTheme();
+
   return (
     <div className="App">
     <Text as="h1" variant="title">
@@ -39,6 +43,8 @@ export default function App() {
     <Icon name="sun" size={21} />
     <Icon name="moon" size={21} />
     <Icon name="medium" size={21} />
+
+    <ToggleButton value={theme} onChange={toggleTheme} />
 
     </div>
   )
